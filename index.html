@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-20">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fresh Bite — Premium farm-to-table restaurant. Savor chef-crafted dishes made from the finest seasonal ingredients." />
+    <title>Fresh Bite — Home</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: { 50: '#EDF5F0', 500: '#2D5A3D', 700: '#1E3D2A', 900: '#0F2118' },
+              accent: { gold: '#C9A227', 'gold-light': '#E8D5A3', terracotta: '#C45C3E', 'terracotta-dark': '#A34A32' },
+              neutral: { 50: '#FAF8F5', 100: '#F3EFE9', 200: '#E8E4DF', 600: '#6B6B6B', 800: '#2C2C2C', 900: '#1A1A1A' },
+            },
+            fontFamily: {
+              display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+              body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+            },
+            maxWidth: { '8xl': '88rem' },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-body bg-neutral-50 text-neutral-800 antialiased" data-page="home">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary-500 focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
+
+    <div id="navbar-container"></div>
+
+    <!-- Hero -->
+    <section class="relative flex min-h-screen min-h-[100dvh] items-center overflow-hidden" aria-label="Welcome">
+      <div class="absolute inset-0" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80" alt="" class="h-full w-full object-cover" width="1920" height="1080" fetchpriority="high" />
+        <div class="absolute inset-0 bg-primary-900/65"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/70 to-primary-900/50"></div>
+      </div>
+
+      <div class="relative z-10 mx-auto w-full max-w-8xl px-4 py-32 sm:px-6 lg:px-8 lg:py-40">
+        <div class="max-w-3xl">
+          <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-accent-gold/30 bg-primary-900/50 px-5 py-2.5 backdrop-blur-md">
+            <span class="text-sm tracking-widest text-accent-gold" aria-hidden="true">★★★★★</span>
+            <span class="text-sm font-semibold text-white">4.9 · 2,000+ Happy Guests</span>
+          </div>
+          <p class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-gold-light sm:text-sm">Farm-to-Table Dining</p>
+          <h1 class="font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-[5.25rem]">
+            Savor Every Bite of
+            <span class="mt-2 block italic text-accent-gold-light">Freshness</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">
+            Where seasonal ingredients meet culinary artistry — every plate crafted with passion and precision.
+          </p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="menu.html" class="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full bg-accent-terracotta px-8 text-base font-semibold text-white shadow-lg shadow-accent-terracotta/40 transition-all hover:bg-accent-terracotta-dark hover:shadow-accent-terracotta/50">View Menu</a>
+            <a href="contact.html#reserve" class="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full border-2 border-white/80 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="main-content">
+      <!-- Featured Preview -->
+      <section class="bg-gradient-to-b from-neutral-50 via-neutral-100/50 to-neutral-50 py-20 md:py-28" aria-labelledby="featured-heading">
+        <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto mb-14 max-w-2xl text-center md:mb-20">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent-gold">Signature Selection</p>
+            <h2 id="featured-heading" class="mt-3 font-display text-4xl font-semibold text-neutral-900 md:text-5xl">Featured Dishes</h2>
+            <p class="mt-4 text-lg leading-relaxed text-neutral-600">Handpicked favorites celebrating seasonal ingredients and bold, refined flavors.</p>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <article class="group overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-lg transition-all hover:-translate-y-2 hover:shadow-xl">
+              <div class="overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Grilled Atlantic Salmon" class="aspect-[16/11] w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div class="p-6 md:p-8">
+                <p class="text-xs font-semibold uppercase tracking-widest text-accent-gold">Chef's Mains</p>
+                <div class="mt-2 flex items-start justify-between gap-4">
+                  <h3 class="font-display text-2xl font-semibold text-neutral-900">Grilled Atlantic Salmon</h3>
+                  <span class="font-display text-xl font-bold text-primary-500">$28</span>
+                </div>
+                <p class="mt-3 text-neutral-600">Herb butter, roasted vegetables, lemon zest.</p>
+              </div>
+            </article>
+
+            <article class="group overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-lg transition-all hover:-translate-y-2 hover:shadow-xl">
+              <div class="overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80" alt="Truffle Mushroom Pasta" class="aspect-[16/11] w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div class="p-6 md:p-8">
+                <p class="text-xs font-semibold uppercase tracking-widest text-accent-gold">House Pasta</p>
+                <div class="mt-2 flex items-start justify-between gap-4">
+                  <h3 class="font-display text-2xl font-semibold text-neutral-900">Truffle Mushroom Pasta</h3>
+                  <span class="font-display text-xl font-bold text-primary-500">$24</span>
+                </div>
+                <p class="mt-3 text-neutral-600">Fresh tagliatelle, wild mushrooms, parmesan.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a href="menu.html" class="inline-flex min-h-[52px] items-center justify-center rounded-full border-2 border-primary-500 px-8 font-semibold text-primary-500 transition-all hover:bg-primary-500 hover:text-white">View Full Menu</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="bg-primary-900 py-20 text-white md:py-28" aria-labelledby="why-heading">
+        <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto mb-14 max-w-2xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent-gold-light">Why Fresh Bite</p>
+            <h2 id="why-heading" class="mt-3 font-display text-4xl font-semibold md:text-5xl">Crafted With Care</h2>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent-gold/15 text-accent-gold-light">
+                <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              </div>
+              <h3 class="font-display text-xl font-semibold">Fresh Ingredients</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/65">Locally sourced, seasonal produce delivered daily.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent-gold/15 text-accent-gold-light">
+                <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              </div>
+              <h3 class="font-display text-xl font-semibold">Expert Chefs</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/65">Award-winning team with decades of experience.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent-gold/15 text-accent-gold-light">
+                <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+              </div>
+              <h3 class="font-display text-xl font-semibold">Open Kitchen</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/65">Transparent preparation with the highest standards.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-accent-gold/15 text-accent-gold-light">
+                <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+              </div>
+              <h3 class="font-display text-xl font-semibold">Private Events</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/65">Elegant dining for unforgettable celebrations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="relative overflow-hidden py-24 md:py-32" aria-label="Reserve a table">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" aria-hidden="true" />
+        <div class="absolute inset-0 bg-primary-900/85"></div>
+        <div class="relative mx-auto max-w-2xl px-4 text-center sm:px-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent-gold-light">An Evening Awaits</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Reserve Your Table Tonight</h2>
+          <p class="mt-5 text-lg text-white/75">Limited seating — book ahead for an unforgettable experience.</p>
+          <a href="contact.html#reserve" class="mt-8 inline-flex min-h-[56px] items-center justify-center rounded-full bg-accent-terracotta px-10 text-base font-semibold text-white shadow-lg transition-all hover:bg-accent-terracotta-dark">Book a Table</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
