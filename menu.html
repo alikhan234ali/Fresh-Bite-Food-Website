@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <style>
+      /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+      #menu-modal ::-webkit-scrollbar,
+      #menu-modal *::-webkit-scrollbar { display: none; }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -31,7 +36,6 @@
   </head>
   <body class="font-body bg-neutral-50 text-neutral-800 antialiased" data-page="menu">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary-500 focus:px-4 focus:py-2 focus:text-white">Skip to main content</a>
-
     <div id="navbar-container"></div>
 
     <!-- Page Header -->
@@ -58,77 +62,101 @@
         <div id="menu-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           <!-- Starters -->
           <article data-category="starters" data-menu-card tabindex="0" role="button" aria-label="View Caprese Salad" data-name="Caprese Salad" data-price="$12" data-description="Classic Italian starter with heirloom tomatoes, fresh mozzarella, and basil pesto." data-ingredients="Heirloom tomatoes, Fresh mozzarella, Basil pesto, Aged balsamic, Olive oil" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1541014747151-58c643112726?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=450&fit=crop&q=80" alt="Caprese Salad" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Caprese Salad</h2><span class="font-display text-lg font-bold text-primary-500">$12</span></div>
               <p class="mt-2 text-sm text-neutral-600">Heirloom tomatoes, mozzarella, basil pesto</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+<button type="button" class="order-now-btn inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</button>
+              </div>
             </div>
           </article>
 
           <article data-category="starters" data-menu-card tabindex="0" role="button" aria-label="View Crispy Calamari" data-name="Crispy Calamari" data-price="$15" data-description="Golden fried squid with house-made lemon garlic aioli." data-ingredients="Fresh squid, Rice flour, Lemon, Garlic aioli, Parsley" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1608039755401-742074f0548b?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&h=450&fit=crop&q=80" alt="Crispy Calamari" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Crispy Calamari</h2><span class="font-display text-lg font-bold text-primary-500">$15</span></div>
               <p class="mt-2 text-sm text-neutral-600">Lightly fried with lemon aioli</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <!-- Mains -->
           <article data-category="mains" data-menu-card tabindex="0" role="button" aria-label="View Grilled Atlantic Salmon" data-name="Grilled Atlantic Salmon" data-price="$28" data-description="Wild-caught salmon with herb butter and roasted seasonal vegetables." data-ingredients="Atlantic salmon, Herb butter, Seasonal vegetables, Lemon zest, Dill" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=600&h=450&fit=crop&q=80" alt="Grilled Atlantic Salmon" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Grilled Atlantic Salmon</h2><span class="font-display text-lg font-bold text-primary-500">$28</span></div>
               <p class="mt-2 text-sm text-neutral-600">Herb butter, roasted vegetables</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <article data-category="mains" data-menu-card tabindex="0" role="button" aria-label="View Truffle Mushroom Pasta" data-name="Truffle Mushroom Pasta" data-price="$24" data-description="Hand-rolled tagliatelle with wild mushrooms and truffle oil." data-ingredients="Tagliatelle, Wild mushrooms, Truffle oil, Parmesan, Garlic" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&h=450&fit=crop&q=80" alt="Truffle Mushroom Pasta" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Truffle Mushroom Pasta</h2><span class="font-display text-lg font-bold text-primary-500">$24</span></div>
               <p class="mt-2 text-sm text-neutral-600">Wild mushrooms, parmesan</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <article data-category="mains" data-menu-card tabindex="0" role="button" aria-label="View Prime Ribeye Steak" data-name="Prime Ribeye Steak" data-price="$42" data-description="Dry-aged ribeye with garlic mash and red wine jus." data-ingredients="Dry-aged ribeye, Garlic mash, Red wine jus, Rosemary, Butter" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=600&h=450&fit=crop&q=80" alt="Prime Ribeye Steak" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Prime Ribeye Steak</h2><span class="font-display text-lg font-bold text-primary-500">$42</span></div>
               <p class="mt-2 text-sm text-neutral-600">Aged beef, garlic mash</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <!-- Desserts -->
           <article data-category="desserts" data-menu-card tabindex="0" role="button" aria-label="View Wild Berry Cheesecake" data-name="Wild Berry Cheesecake" data-price="$14" data-description="Vanilla bean cheesecake with seasonal berry compote." data-ingredients="Cream cheese, Vanilla bean, Mixed berries, Graham crust" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1533134242443-10ceb405b128?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1567171466295-4afa63d45416?w=600&h=450&fit=crop&q=80" alt="Wild Berry Cheesecake" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Wild Berry Cheesecake</h2><span class="font-display text-lg font-bold text-primary-500">$14</span></div>
               <p class="mt-2 text-sm text-neutral-600">Vanilla cream, berry compote</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <article data-category="desserts" data-menu-card tabindex="0" role="button" aria-label="View Chocolate Lava Cake" data-name="Chocolate Lava Cake" data-price="$12" data-description="Warm molten chocolate cake with vanilla bean ice cream." data-ingredients="Dark chocolate, Butter, Eggs, Vanilla ice cream" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=450&fit=crop&q=80" alt="Chocolate Lava Cake" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Chocolate Lava Cake</h2><span class="font-display text-lg font-bold text-primary-500">$12</span></div>
               <p class="mt-2 text-sm text-neutral-600">Molten center, ice cream</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
 
           <!-- Drinks -->
           <article data-category="drinks" data-menu-card tabindex="0" role="button" aria-label="View Fresh Citrus Mojito" data-name="Fresh Citrus Mojito" data-price="$10" data-description="Refreshing mint and lime mocktail with sparkling water." data-ingredients="Fresh mint, Lime, Sparkling water, House syrup" class="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=600&q=80" alt="" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
+            <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&h=450&fit=crop&q=80" alt="Fresh Citrus Mojito" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" /></div>
             <div class="p-5">
               <div class="flex items-start justify-between gap-3"><h2 class="font-display text-xl font-semibold">Fresh Citrus Mojito</h2><span class="font-display text-lg font-bold text-primary-500">$10</span></div>
               <p class="mt-2 text-sm text-neutral-600">Mint, lime, sparkling water</p>
-              <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs font-semibold uppercase tracking-wider text-primary-500 opacity-0 transition-opacity group-hover:opacity-100">Tap to view details →</p>
+                <a href="contact.html#reserve" onclick="event.stopPropagation()" class="inline-flex items-center justify-center rounded-full bg-accent-terracotta px-5 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-accent-terracotta-dark hover:shadow-lg">Order Now</a>
+              </div>
             </div>
           </article>
         </div>
@@ -139,30 +167,63 @@
       </div>
     </main>
 
-    <!-- Menu Modal -->
-    <div id="menu-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4" aria-hidden="true" role="presentation">
-      <div data-modal-backdrop data-modal-close class="absolute inset-0 bg-primary-900/75 opacity-0 backdrop-blur-sm transition-opacity duration-300" aria-hidden="true"></div>
-      <div data-modal-dialog role="dialog" aria-modal="true" aria-labelledby="menu-modal-title" class="relative z-10 max-h-[90vh] w-full max-w-3xl translate-y-4 scale-95 overflow-hidden rounded-2xl bg-neutral-50 opacity-0 shadow-2xl transition-all duration-300">
-        <button type="button" data-modal-close class="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-800 shadow-lg transition-colors hover:text-accent-terracotta" aria-label="Close">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    <!-- Menu Modal — Premium -->
+    <div id="menu-modal" class="fixed inset-0 z-[80] hidden items-center justify-center p-3 sm:p-6" aria-hidden="true" role="presentation">
+      <!-- Backdrop -->
+      <div data-modal-backdrop data-modal-close class="absolute inset-0 bg-[#0a0f0c]/85 opacity-0 backdrop-blur-xl transition-opacity duration-500" aria-hidden="true"></div>
+
+      <!-- Dialog -->
+      <div data-modal-dialog role="dialog" aria-modal="true" aria-labelledby="menu-modal-title" class="relative z-10 flex w-full max-w-[880px] translate-y-8 scale-[0.96] flex-col overflow-visible rounded-[2rem] bg-[#FAFAF7] opacity-0 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.45)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:flex-row sm:items-stretch">
+
+        <!-- Close Button — Premium -->
+        <button type="button" data-modal-close class="absolute right-3 top-3 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/80 shadow-xl backdrop-blur-md transition-all duration-300 hover:bg-black/50 hover:text-white hover:scale-110 sm:right-4 sm:top-4" aria-label="Close">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
-        <img id="menu-modal-image" src="" alt="" class="aspect-video w-full object-cover" />
-        <div class="max-h-[40vh] overflow-y-auto p-6 sm:p-8">
-          <div class="flex items-start justify-between gap-4">
-            <h2 id="menu-modal-title" class="font-display text-3xl font-semibold text-neutral-900"></h2>
-            <p id="menu-modal-price" class="font-display text-2xl font-bold text-primary-500"></p>
+
+        <!-- Image Panel — Left Side -->
+        <div class="relative w-full shrink-0 overflow-hidden rounded-t-[2rem] sm:w-[38%] sm:rounded-l-[2rem] sm:rounded-tr-none">
+          <img id="menu-modal-image" src="" alt="" class="h-52 w-full object-cover sm:h-full sm:min-h-[380px]" />
+        </div>
+
+        <!-- Content Panel — Right Side -->
+        <div class="flex flex-1 flex-col p-5 sm:p-7">
+          <!-- Category -->
+          <p id="menu-modal-category" class="inline-flex self-start rounded-full border border-primary-500/15 bg-primary-500/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary-500"></p>
+
+          <!-- Title -->
+          <h2 id="menu-modal-title" class="mt-3 font-display text-2xl font-semibold leading-tight text-neutral-900 sm:text-[1.75rem]"></h2>
+
+          <!-- Price -->
+          <p id="menu-modal-price" class="mt-1.5 font-display text-xl font-bold text-primary-500"></p>
+
+          <!-- Description -->
+          <p id="menu-modal-description" class="mt-3 text-sm leading-relaxed text-neutral-500"></p>
+
+          <!-- Ingredients -->
+          <div class="mt-5 rounded-xl border border-accent-gold/10 bg-accent-gold/[0.03] p-4">
+            <h3 class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-accent-gold">
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              Ingredients
+            </h3>
+            <ul id="menu-modal-ingredients" class="mt-3 flex flex-wrap gap-1.5"></ul>
           </div>
-          <p id="menu-modal-description" class="mt-4 leading-relaxed text-neutral-600"></p>
-          <div class="mt-6 border-t border-neutral-200 pt-6">
-            <h3 class="text-xs font-semibold uppercase tracking-widest text-accent-gold">Ingredients</h3>
-            <ul id="menu-modal-ingredients" class="mt-3 flex flex-wrap gap-2"></ul>
+
+          <!-- Action Buttons -->
+          <div class="mt-auto pt-5 flex flex-col gap-2.5 sm:flex-row">
+            <a href="contact.html#reserve" data-modal-order class="group relative inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-accent-terracotta to-[#D4654A] px-6 text-[12px] font-bold uppercase tracking-wider text-white shadow-[0_8px_30px_-4px_rgba(196,92,62,0.4)] transition-all duration-300 hover:shadow-[0_12px_40px_-4px_rgba(196,92,62,0.5)] hover:-translate-y-0.5 active:translate-y-0">
+              <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></span>
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>
+              Order This Dish
+            </a>
+            <button type="button" data-modal-close class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-neutral-200 bg-white px-6 text-[12px] font-medium uppercase tracking-wider text-neutral-500 transition-all duration-300 hover:border-neutral-300 hover:bg-neutral-50 hover:text-neutral-700">
+              Close
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <div id="footer-container"></div>
-
     <script src="js/main.js" defer></script>
     <script src="js/menu-modal.js" defer></script>
   </body>

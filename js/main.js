@@ -8,6 +8,62 @@
   const FOCUSABLE =
     'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+  const NAVBAR_FALLBACK = `
+    <header id="site-navbar" class="fixed inset-x-0 top-0 z-50 bg-neutral-50/95 shadow-sm backdrop-blur-md" data-navbar>
+      <div class="mx-auto flex h-16 max-w-8xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:h-20 lg:px-8">
+        <a href="index.html" class="group flex shrink-0 items-center gap-2.5" aria-label="Fresh Bite — Home">
+          <svg class="h-8 w-8 text-primary-500" data-nav-logo-icon viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 4C12 4 9 7 9 11c0 2 .5 3.5 1.5 5L16 28l5.5-12c1-1.5 1.5-3 1.5-5 0-4-3-7-7-7z" fill="currentColor" opacity="0.9" />
+          </svg>
+          <span class="font-display text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl" data-nav-logo-text>Fresh Bite</span>
+        </a>
+        <nav class="hidden flex-1 items-center justify-center gap-1 md:flex lg:gap-2" aria-label="Main navigation">
+          <a href="index.html" data-nav-link="home" class="rounded-lg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-800 transition-colors hover:text-primary-500">Home</a>
+          <a href="menu.html" data-nav-link="menu" class="rounded-lg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-800 transition-colors hover:text-primary-500">Menu</a>
+          <a href="about.html" data-nav-link="about" class="rounded-lg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-800 transition-colors hover:text-primary-500">About</a>
+          <a href="contact.html" data-nav-link="contact" class="rounded-lg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-800 transition-colors hover:text-primary-500">Contact</a>
+        </nav>
+        <a href="contact.html#reserve" class="hidden shrink-0 items-center justify-center rounded-full bg-accent-terracotta px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg md:inline-flex">Reserve Table</a>
+      </div>
+    </header>`;
+
+  const FOOTER_FALLBACK = `
+    <footer class="bg-gradient-to-b from-primary-700 to-primary-900 text-neutral-50" aria-label="Site footer">
+      <div class="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+          <div class="sm:col-span-2 lg:col-span-1">
+            <a href="index.html" class="inline-flex items-center gap-2.5">
+              <svg class="h-8 w-8 text-accent-gold-light" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 4C12 4 9 7 9 11c0 2 .5 3.5 1.5 5L16 28l5.5-12c1-1.5 1.5-3 1.5-5 0-4-3-7-7-7z" fill="currentColor" opacity="0.9" />
+              </svg>
+              <span class="font-display text-2xl font-bold text-white">Fresh Bite</span>
+            </a>
+            <p class="mt-3 max-w-xs text-sm leading-relaxed text-white/70">Farm-to-table dining crafted with passion.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-accent-gold-light">Explore</h3>
+            <ul class="mt-4 space-y-3">
+              <li><a href="index.html" class="text-sm text-white/70 transition-colors hover:text-white">Home</a></li>
+              <li><a href="menu.html" class="text-sm text-white/70 transition-colors hover:text-white">Menu</a></li>
+              <li><a href="about.html" class="text-sm text-white/70 transition-colors hover:text-white">About</a></li>
+              <li><a href="contact.html" class="text-sm text-white/70 transition-colors hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-accent-gold-light">Hours</h3>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li>Mon – Fri: 11 AM – 10 PM</li>
+              <li>Sat – Sun: 10 AM – 11 PM</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-accent-gold-light">Contact</h3>
+            <p class="mt-4 text-sm text-white/70">123 Gourmet Avenue<br />Downtown, Your City</p>
+          </div>
+        </div>
+      </div>
+    </footer>`;
+
   /* ── Load navbar & footer components ── */
   async function loadComponent(containerId, filePath) {
     const container = document.getElementById(containerId);
@@ -19,8 +75,7 @@
       container.innerHTML = await response.text();
     } catch (error) {
       console.error(error);
-      container.innerHTML = `<p class="p-4 text-center text-red-600">Could not load ${filePath}. Use a local server (e.g. Live Server).</p>`;
-      return;
+      container.innerHTML = containerId === 'navbar-container' ? NAVBAR_FALLBACK : FOOTER_FALLBACK;
     }
 
     if (containerId === 'navbar-container') initNavbar();
@@ -41,26 +96,25 @@
     const currentPage = document.body.dataset.page || '';
 
     const scrolledClasses = ['bg-neutral-50/95', 'backdrop-blur-md', 'shadow-sm'];
-    const lightText = ['text-white/90', 'hover:text-accent-gold-light'];
-    const darkText = ['text-neutral-800', 'hover:text-primary-500'];
 
     function setNavbarScrolled(scrolled) {
       if (!navbar) return;
 
       scrolledClasses.forEach((c) => navbar.classList.toggle(c, scrolled));
 
-      const useDark = scrolled || !isHome;
-
-      logoIcon?.classList.toggle('text-white', !useDark);
-      logoIcon?.classList.toggle('text-primary-500', useDark);
-      logoText?.classList.toggle('text-white', !useDark);
-      logoText?.classList.toggle('text-neutral-900', useDark);
-      hamburger?.classList.toggle('text-white', !useDark);
-      hamburger?.classList.toggle('text-neutral-900', useDark);
+      // White text when transparent, dark text when scrolled
+      logoIcon?.classList.toggle('text-white', !scrolled);
+      logoIcon?.classList.toggle('text-primary-500', scrolled);
+      logoText?.classList.toggle('text-white', !scrolled);
+      logoText?.classList.toggle('text-neutral-900', scrolled);
+      hamburger?.classList.toggle('text-white', !scrolled);
+      hamburger?.classList.toggle('text-neutral-900', scrolled);
 
       navLinks.forEach((link) => {
-        lightText.forEach((c) => link.classList.toggle(c, !useDark));
-        darkText.forEach((c) => link.classList.toggle(c, useDark));
+        link.classList.toggle('text-white/90', !scrolled);
+        link.classList.toggle('hover:text-accent-gold-light', !scrolled);
+        link.classList.toggle('text-neutral-800', scrolled);
+        link.classList.toggle('hover:text-primary-500', scrolled);
       });
     }
 
@@ -82,8 +136,7 @@
       highlightActiveLink();
     }
 
-    if (!isHome) setNavbarScrolled(true);
-    else onScroll();
+    onScroll();
 
     window.addEventListener('scroll', onScroll, { passive: true });
     highlightActiveLink();
